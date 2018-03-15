@@ -2,7 +2,11 @@ PREDEF:
   - preface.re
 
 CHAPS:
-  - article.re
+  - 01_what_nuxt.re
+  - 02_start_nuxt.re
+  - 03_directory.re
+  - 04_command.re
+  - 05_how_to_create_application.re
 
 APPENDIX:
 
