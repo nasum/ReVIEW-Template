@@ -8,4 +8,10 @@
 
 == 本書の構成
 
+== サンプルのソースコードについて
+
+本書で使用したソースコードは次のURLで閲覧可能です。
+
+https://github.com/nasum/hello_nuxt_sample
+
 == 謝辞
