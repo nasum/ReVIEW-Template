@@ -330,6 +330,55 @@ export default {
 
 == store
 
+@<ttb>{store}ディレクトリには@<ttb>{Vuex}のストアをのファイルを配置します。@<ttb>{Nuxt.js}はデフォルトで@<ttb>{Vuex}を組み込んでいます。
+
+@<ttb>{Nuxt.js}では@<ttb>{Vuex}をクラシックモードとモジュールモードで使用することができます。
+
+クラシックモードは@<ttb>{index.js}を@<ttb>{store}ディレクトリに作ります。その中で@<ttb>{Vuex}を読みこみ作成した@<ttb>{store}を@<ttb>{export}します。次のように書くと1つのファイルでストアを管理するクラシックモードでの@<ttb>{Vuex}の使用法になります。
+
+//list[vuex_classic][index.js][javascript]{
+import Vuex from 'vuex'
+
+const store = () => new Vuex.Store({
+
+  state: {
+    counter: 0
+  },
+  mutations: {
+    increment(state) {
+      state.counter++
+    }
+  }
+})
+
+export default store
+//}
+
+モジュールモードはファイルごとにストアを定義することができます。ファイルごとに@<ttb>{state}・@<ttb>{mutations}・@<ttb>{actions}を@<ttb>{export}します。
+
+//list[vuex_module][article.js][javascirpt]{
+export const state = () => ({
+  body: ""
+})
+
+export const mutations = {
+  update (state, text) {
+    state.body = text
+  },
+}
+
+export const actions = {
+  update (state, text) {
+    context.commit({
+      type: 'update',
+      text: text
+    })
+  }
+}
+//}
+
+ほかは通常の@<ttb>{Vuex}の使用法と変わりなく使用することが出来ます。
+
 == assets
 
 == static
