@@ -1,15 +1,15 @@
 PREDEF:
-  - preface.re
+  - hello_nuxt_preface.re
 
 CHAPS:
-  - 01_what_nuxt.re
-  - 02_start_nuxt.re
-  - 03_directory.re
-  - 04_config.re
-  - 05_command.re
-  - 06_how_to_create_application.re
+  - hello_nuxt_what_nuxt.re
+  - hello_nuxt_start_nuxt.re
+  - hello_nuxt_directory.re
+  - hello_nuxt_config.re
+  - hello_nuxt_command.re
+  - hello_nuxt_how_to_create_application.re
 
 APPENDIX:
 
 POSTDEF:
-  - postdef.re.re
+  - hello_nuxt_postdef.re.re
