@@ -302,6 +302,32 @@ Vue.use(VueGoodTable);
 
 == middleware
 
+@<ttb>{middleware}ディレクトリにはページをレンダリングするよりも前に実行される関数を定義し配置することができます。たとえば次のように@<ttb>{console.log}で出力する関数を定義します。
+
+//list[visit][visit.js][javascirpt]{
+export default function () {
+  console.log('visit')
+}
+//}
+
+これを使用するためにページコンポーネントの@<ttb>{middleware}キーにファイル名を記入します。
+
+//list[index_visit][index.vue][javascript]{
+<script>
+export default {
+  middleware: ["visit"]
+};
+</script>
+//}
+
+するとこのコンポーネントをレンダリングするたびに@<ttb>{console.log}が呼び出され@<ttb>{Nuxt.js}を実行したコンソール上で@<ttb>{visit}と表示されます。
+
+#@# コンテキストについてどうするか
+
+気をつけなければいけないのは@<ttb>{middleware}はサーバサイド側で実行されるという点です。クライアントサイドで使えるような関数（@<ttb>{alert}等）は使えないことに気をつけましょう。
+
+用途としてはページがレンダリングされるより前の認証処理を実行するさいに使用するのがよいでしょう。
+
 == store
 
 == assets
