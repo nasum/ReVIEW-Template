@@ -377,10 +377,31 @@ export const actions = {
 }
 //}
 
-ほかは通常の@<ttb>{Vuex}の使用法と変わりなく使用することが出来ます。
+ほかは通常の@<ttb>{Vuex}の使用法と変わりなく使用することができます。
 
 == assets
 
+@<ttb>{assets}ディレクトリは@<ttb>{LESS}や@<ttb>{SCSS}などのコンパイルされてないファイルを配置します。このディレクトリ中では@<ttb>{Webpack}によってビルドされるファイルが配置されます。@<ttb>{Nuxt.js}では@<ttb>{file-loader}や@<ttb>{url-loader}を読み込むのでそれが使用されます。
+
+使用例としては共通で使用したい@<ttb>{scss}ファイルがあった場合@<ttb>{assets}ディレクトリにscssファイルを次のように配置します。
+
+//emlist[assetsのディレクトリ構成]{
+assets
+└─ sample.scss
+//}
+
+それをページコンポーネントの@<ttb>{style}要素で次のように読みこみ利用することができます。
+
+//list[style][artivle.vue][html]{
+  <style src="~/assets/sample.scss"></style>
+//}
+
+他にも@<ttb>{loader}で処理するファイルはここに配置します。
+
+#@# もうすこし詳細に書いてもいいかも
+
 == static
+
+@<ttb>{static}ディレクトリはコンパイルしない静的なファイルを配置します。
 
 == まとめ
