@@ -13,7 +13,7 @@
 
 === ビュー
 
-@<ttb>{pages}ディレクトリに配置される@<ttb>{.vue}ファイルはそれがひとつのページになります。
+@<ttb>{pages}ディレクトリに配置される@<ttb>{.vue}ファイルはそれがひとつのページになります。これをページコンポーネントと呼びます。
 
 @<ttb>{Nuxt.js}はユニバーサルアプリケーションを作成するために@<ttb>{.vue}ファイルに独自の属性を追加します。独自に追加された属性を次に挙げます。
 
@@ -187,6 +187,80 @@ export function createRouter () {
 ここに配置されるコンポーネントは@<ttb>{Nuxt.js}の影響下ではないため、ピュアな@<ttb>{.vue}ファイルになります。
 
 == layouts
+
+@<ttb>{layouts}ディレクトリはアプリケーションのレイアウトとなるファイルを入れます。
+
+=== デフォルトレイアウト
+
+デフォルトのレイアウトは@<ttb>{default.vue}という名前で作成します。レイアウトの中身は次のように書いていきます。
+
+//list[default][defualt.vue][html]{
+<template>
+  <nuxt/>
+</template>
+//}
+
+@<ttb>{<nuxt/>}は@<ttb>{Nuxt.js}で定義されたコンポーネントでレイアウトファイルないでのみページコンポーネントを表示するために使用します。
+
+=== エラーページ
+
+エラーページは@<ttb>{error.vue}という名前で作成します。エラーページで使用するため@<ttb>{<nuxt/>}を含めてはいけません。次のようにエラーページは書いていきます。
+
+//list[error][error.vue][html]{
+<template>
+  <div>
+    <h1 v-if="error.statusCode === 404">ページが見つかりません</h1>
+    <h1 v-else>エラーが発生しました</h1>
+  </div>
+</template>
+<script>
+export default {
+  props: ['error']
+}
+</script>
+//}
+
+@<ttb>{error.vue}は@<ttb>{props}として@<ttb>{error}を受け取ります。@<ttb>{error}オブジェクトは次の値を持ちます。
+
+ : message
+    エラーメッセージが入ります
+ : path
+    エラーが発生したパスが入ります
+ : statusCode
+    エラーコードが入ります ex.. 404
+
+@<ttb>{statusCode}で表示するメッセージを分岐するなどしてエラー時のページを表示し分けます。
+
+=== カスタムレイアウト
+
+ページごとにカスタマイズしたレイアウトを作成することができます。レイアウトは@<ttb>{<nuxt/>}を必ず含みます。
+
+書き方自体はデフォルトレイアウトと同じですが、ページコンポーネントの@<ttb>{layout}にカスタムレイアウトのファイル名を書きます。実装は次のように行います。
+
+//list[article_layout][article_layout.vue][html]{
+<template>
+  <div>
+    article layout
+    <nuxt/>
+  </div>
+</template>
+//}
+
+//list[article_index][index.vue][html]{
+<template>
+  <section>
+    <h1>articles</h1>
+  </section>
+</template>
+
+<script>
+export default {
+  layout: "article_layout"
+};
+</script>
+//}
+
+
 
 == plugin
 
