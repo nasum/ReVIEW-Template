@@ -260,9 +260,45 @@ export default {
 </script>
 //}
 
-
-
 == plugin
+
+@<ttb>{plugins}ディレクトリにはアプリケーションをインスタンス化する前に実行したい@<ttb>{JavaScript}プラグインを配置します。
+
+サードパーティの@<ttb>{Vue Plugin}などを利用するときにここに初期化のコードを書きます。たとえば@<ttb>{vue-good-table}というプラグインを使用する場合@<ttb>{plugins}ディレクトリに次のようなファイルを配置します。
+
+//list[vue-good-table][vue-good-table.js][javascript]{
+import Vue from 'vue';
+
+import VueGoodTable from 'vue-good-table';
+import 'vue-good-table/dist/vue-good-table.css'
+
+Vue.use(VueGoodTable);
+//}
+
+@<ttb>{vue-good-table}のコンポーネントを使用するには次のように書きます。
+
+//list[index][index.vue][html]{
+<template>
+  <section>
+    <h1>Hello Nuxt!!</h1>
+    <vue-good-table
+      :columns="columns"
+      :rows="rows"
+      :search-options="{
+        enabled: true,
+      }"
+      :pagination-options="{
+        enabled: true,
+        perPage: 5,
+      }"
+      styleClass="vgt-table striped bordered"/>
+  </section>
+</template>
+//}
+
+これで@<ttb>{vue-good-table}のコンポーネントがどのページコンポーネントでも使用できます。
+
+他にもカスタムディレクティブ等グローバルで使用するものはここで定義します。
 
 == middleware
 
