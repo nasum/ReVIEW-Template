@@ -10,6 +10,52 @@
 
 == コンテキスト
 
+コンテキストは@<ttb>{Nuxt.js}のページコンポーネントで使用するオブジェクトです。主に引数として渡されます。
+
+使用される場所は次のように挙げられます。
+
+ 1. @<ttb>{asyncData}メソッドの第一引数
+ 2. @<ttb>{fetch}メソッドの第一引数
+ 3. @<ttb>{layout}をメソッドとして使用したときの第一引数
+ 4. ミドルウェアとして定義した関数の第一引数
+
+それぞれの場所でコンテキストオブジェクトを通じてデータの更新などを行うことができます。
+
+次にコンテキストオブジェクトの内容を挙げます。
+
+ : app
+    Vueインスタンスのルートオブジェクト。全てのプラグインにここからアクセスします。
+ : isClient
+    @<ttb>{boolean}型。クライアントサイドでレンダリングされたら@<ttb>{true}になります。
+ : isServer
+    @<ttb>{boolean}型。サーバサイドでレンダリングされたら@<ttb>{true}になります。
+ : isStatic
+    @<ttb>{boolean}型。アプリケーションが静的サイトジェネレータで出力されたものであれば@<ttb>{true}になります。
+ : isDev
+    @<ttb>{boolean}型。開発モードで実行されたら@<ttb>{true}になります。
+ : isHMR
+    @<ttb>{boolean}型。Webpackのホットモジュールリプレイスメントで日津路されていたら@<ttb>{true}になります。
+ : route
+    @<ttb>{vue-router}のインスタンス。
+ : store
+    @<ttb>{Vuex}のストアオブジェクト。
+ : env
+    オブジェクト。@<ttb>{nuxt.config.js}に定義した@<ttb>{env}オブジェクトを参照できます。
+ : params
+    オブジェクト。@<ttb>{route}オブジェクトの@<ttb>{params}のエイリアス。
+ : query
+    オブジェクト。@<ttb>{route}オブジェクトの@<ttb>{query}のエイリアス。
+ : req
+    @<ttb>{http.Request}。@<ttb>{Node.js}の@<ttb>{request}。静的ファイルジェネレータで出力した場合は存在しません。
+ : res
+    @<ttb>{http.Response}。@<ttb>{Node.js}の@<ttb>{response}。静的ファイルジェネレータで出力した場合は存在しません。
+ : redirect
+    関数。リダイレクトのための関数。他のルートにリダイレクトさせたい場合は、@<ttb>{redirect（status, path, params）}でリダイレクトさせます。
+ : error
+    関数。エラーページを表示するときに使用する関数。@<ttb>{error（{message, statusCode）}で実行します。
+
+各メソッドが実行されるときにコンテキストオブジェクトを利用し適した処理を行います。
+
 == .vueファイルに追加された属性
 
 @<chapref>{hello_nuxt_directory}でも軽く触れましたが@<ttb>{Nuxt.js}では@<ttb>{.vue}ファイルに独自の拡張を加えます。
