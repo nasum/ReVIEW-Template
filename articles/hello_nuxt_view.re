@@ -8,6 +8,8 @@
 
 @<ttb>{Nuxt.js}でページを定義するのは@<ttb>{pages}ディレクトリに配置された@<ttb>{.vue}ファイルです。
 
+== コンテキスト
+
 == .vueファイルに追加された属性
 
 @<chapref>{hello_nuxt_directory}でも軽く触れましたが@<ttb>{Nuxt.js}では@<ttb>{.vue}ファイルに独自の拡張を加えます。
@@ -144,6 +146,29 @@ export default {
 //}
 
 === fetch
+
+@<ttb>{fetch}はページがレンダリングされる前にデータを@<ttb>{store}に入れるために使用されます。ここで定義された関数もページコンポーネントがロードされるたびに呼び出されます。
+
+@<ttb>{fetch}関数は第一引数にコンテキストを受け取り、コンテキストを使用してデータを@<ttb>{store}に入れます。
+
+//list[fetch][index.vue]{
+<template>
+<section>
+  <h1>sample</h1>
+  {{ $store.state.title }}
+</section>
+</template>
+
+<script>
+export default {
+  fetch ({ store, params }) {
+    return axios.get('http://example.com/api/title').then(() => {
+      store.commit('setTitle', { title: res.title })
+    });
+  }
+}
+</script>
+//}
 
 === head
 
