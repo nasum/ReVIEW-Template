@@ -7,9 +7,8 @@ CHAPS:
   - hello_nuxt_directory.re
   - hello_nuxt_view.re
   - hello_nuxt_command.re
-  - hello_nuxt_how_to_create_application.re
 
 APPENDIX:
 
 POSTDEF:
-  - hello_nuxt_postdef.re.re
+  - hello_nuxt_postdef.re
