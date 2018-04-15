@@ -6,7 +6,6 @@ CHAPS:
   - hello_nuxt_start_nuxt.re
   - hello_nuxt_directory.re
   - hello_nuxt_view.re
-  - hello_nuxt_config.re
   - hello_nuxt_command.re
   - hello_nuxt_how_to_create_application.re
 
