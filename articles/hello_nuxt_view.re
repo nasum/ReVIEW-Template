@@ -245,7 +245,7 @@ export default {
 </script>
 //}
 
-@<ttb>{this}で@<ttb>{data}オブジェクトにアクセスし柔軟な@<ttb>{head}を定義出来ます。
+@<ttb>{this}で@<ttb>{data}オブジェクトにアクセスし柔軟な@<ttb>{head}を定義できます。
 
 === layout
 
@@ -269,10 +269,39 @@ export default {
 </script>
 //}
 
-=== transition
-
 === scrollToTop
+
+ページを遷移したときトップまでスクロールするかどうかを設定します。
+
+@<ttb>{true}であればトップまでスクロールし、@<ttb>{false}であればデフォルトの挙動になります。通常に何も設定しなければ@<ttb>{falase}になります。
 
 === validate
 
+@<ttb>{validate}には動的なルーティングを行うコンポーネントのバリデーションメソッドを定義できます。バリデーションが通れば該当ページコンポーネントが描画され、通らなければエラーページが表示されます。
+
+//list[validate][index.vue]{
+<script>
+export default {
+  validate({ params, query, store }) {
+    return true; // ここでtrueを返すとバリデーションが通ったことになります。
+  }
+};
+</script>
+//}
+
+@<ttb>{validate}の引数は次の３つがオブジェクトで渡されます
+
+ : params
+    動的ルーティングのパラメータ
+ : query
+    URLクエリパラメータ
+ : store
+    @<ttb>{Vuex}のストアオブジェクト
+
+渡されるパラメータによって柔軟にバリデーションを行えるようになります。
+
 === middleware
+
+== まとめ
+
+@<ttb>{transition}
