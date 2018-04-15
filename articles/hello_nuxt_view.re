@@ -273,7 +273,7 @@ export default {
 
 ページを遷移したときトップまでスクロールするかどうかを設定します。
 
-@<ttb>{true}であればトップまでスクロールし、@<ttb>{false}であればデフォルトの挙動になります。通常に何も設定しなければ@<ttb>{falase}になります。
+@<ttb>{true}であればトップまでスクロールし、@<ttb>{false}であればデフォルトの挙動になります。通常に何も設定しなければ@<ttb>{false}になります。
 
 === validate
 
@@ -302,6 +302,13 @@ export default {
 
 === middleware
 
+@<ttb>{middleware}にはページコンポーネントのレンダリング時に使用するミドルウェアのファイル名を文字列か文字列の配列で定義します。@<ttb>{middleware}ディレクトリに配置したファイル名を指定します。
+
 == まとめ
 
-@<ttb>{transition}
+以上@<ttb>{Nuxt.js}におけるビューコンポーネントについてまとめていきました。通常の@<ttb>{Vue.js}のコンポーネント開発とは違い@<ttb>{Nuxt.js}独自のサーバーサイドレンダリングのための拡張がされていることが分かると思います。とくに@<ttb>{asyncData}や@<ttb>{fetch}はレンダリングする前の非同期処理を書くことができます。@<ttb>{Nuxt.js}での開発ではとくに重要な機能になります。
+
+ここで紹介した機能以外に@<ttb>{transition}という項目もあります。@<ttb>{transition}はページコンポーネントの遷移時の動きについて定義することができます。@<ttb>{transition}そのものについてh@<ttb>{Vue.js}のガイド@<fn>{transition}を参照するとよいです。
+
+
+//footnote[transition][Enter/Leave とトランジション一覧 https://jp.vuejs.org/v2/guide/transitions.html]
