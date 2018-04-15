@@ -224,7 +224,7 @@ export default {
 
 次のように実装していきます。
 
-//list[head][index.vue][html]
+//list[head][index.vue]{
 <script>
 export default {
   data () {
@@ -249,7 +249,25 @@ export default {
 
 === layout
 
+@<ttb>{layout}は2とおりの使い方ができます。
 
+ 1. 文字列で@<ttb>{layout}を指定
+ 2. 関数でコンテキストオブジェクトを受け取り動的に定義
+
+使い方を次に示します。
+
+//list[layout][index.vue]{
+<script>
+export default {
+  layout: 'sample-layout',
+  // または
+  layout (context) {
+    // コンテキストオブジェクトを受け取り動的にレイアウトを返すことができます。
+    return 'sample-layout'
+  }
+}
+</script>
+//}
 
 === transition
 
