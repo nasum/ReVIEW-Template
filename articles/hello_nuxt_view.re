@@ -1,4 +1,4 @@
-= Nuxt.jsでのページコンポーネントについて
+= Nuxt.jsのページコンポーネント
 
 //lead{
 この章では@<ttb>{Nuxt.js}のページコンポーネントについて解説していきます。@<ttb>{Nuxt.js}ではサーバーサイドレンダリングを行うために@<ttb>{.vue}ファイルを拡張しています。本章では@<ttb>{Nuxt.js}におけるページコンポーネントについて書いていきます。
@@ -308,7 +308,7 @@ export default {
 
 以上@<ttb>{Nuxt.js}におけるページコンポーネントについてまとめていきました。通常の@<ttb>{Vue.js}のコンポーネント開発とは違い@<ttb>{Nuxt.js}独自のサーバーサイドレンダリングのための拡張がされていることが分かると思います。とくに@<ttb>{asyncData}や@<ttb>{fetch}はレンダリングする前の非同期処理を書くことができます。@<ttb>{Nuxt.js}での開発ではとくに重要な機能になります。
 
-ここで紹介した機能以外に@<ttb>{transition}という項目もあります。@<ttb>{transition}はページコンポーネントの遷移時の動きについて定義することができます。@<ttb>{transition}そのものについてh@<ttb>{Vue.js}のガイド@<fn>{transition}を参照するとよいです。
+ここで紹介した機能以外に@<ttb>{transition}という項目もあります。@<ttb>{transition}はページコンポーネントの遷移時の動きについて定義することができます。@<ttb>{transition}そのものについて@<ttb>{Vue.js}のガイド@<fn>{transition}を参照するとよいです。
 
 
 //footnote[transition][Enter/Leave とトランジション一覧 https://jp.vuejs.org/v2/guide/transitions.html]
