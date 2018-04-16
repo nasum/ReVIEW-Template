@@ -18,7 +18,7 @@
  : @<chapref>{hello_nuxt_directory}
   @<ttb>{Nuxt.js}のディレクトリ構成について解説します。
  : @<chapref>{hello_nuxt_view}
-  @<ttb>{Nuxt.js}のビューコンポーネントについて解説します。
+  @<ttb>{Nuxt.js}のページコンポーネントについて解説します。
  : @<chapref>{hello_nuxt_command}
   @<ttb>{Nuxt.js}で使用するコマンドについて解説します。
 
