@@ -18,21 +18,21 @@
 @<ttb>{Nuxt.js}はユニバーサルアプリケーションを作成するために@<ttb>{.vue}ファイルに独自の属性を追加します。独自に追加された属性を次に挙げます。
 
  : asyncData	
-    コンポーネントがロードされるたびに呼び出される。主にレンダリングの前処理に使用する
+    コンポーネントのロード毎に実行される。レンダリングの前処理に使用する。
  : fetch
 		ページがレンダリングされる前にデータをストアに入れるために使用される
  : head
 		ページに対してmetaタグを設定するために使用される
  : layout
-		layoutをしているするために使用される
+		layoutを指定するするために使用される
  : transition
 		ページ特定のトランジションを設定するために使用される
  : scrollToTop
-		ページをレンダリングする前にページを一番上までスクロールするか設定できる
+		ページのレンダリング時に一番上までスクロールするか否かを設定します。
  : validate
 		動的なルーティングをするための検証関数を設定できる
  : middleware
-		ページをレンダリングする前に実行するmiddlewareを設定する
+		ページのレンダリング時に実行するmiddlewareを設定する
 
 それぞれの項目に関しては@<chapref>{hello_nuxt_view}で細かく見ていきます。
 
@@ -81,8 +81,6 @@ export function createRouter () {
         name: "index"
       }
     ],
-
-
     fallback: false
   })
 }
@@ -154,8 +152,6 @@ export function createRouter () {
         name: "user-profile"
       }
     ],
-
-
     fallback: false
   })
 }
@@ -180,15 +176,13 @@ export function createRouter () {
 
 == components
 
-@<ttb>{components}ディレクトリにはビューで使用するためのコンポーネントを配置します。
-
-@<ttb>{components}ディレクトリは@<ttb>{Nuxt.js}からは自動で読み込まれないため、使用しなければ削除することが可能です。
+@<ttb>{components}ディレクトリにはビューで使用するためのコンポーネントを配置します。@<ttb>{components}ディレクトリは@<ttb>{Nuxt.js}からは自動で読み込まれないため、使用しなければ削除することが可能です。
 
 ここに配置されるコンポーネントは@<ttb>{Nuxt.js}の影響下ではないため、ピュアな@<ttb>{.vue}ファイルになります。
 
 == layouts
 
-@<ttb>{layouts}ディレクトリはアプリケーションのレイアウトとなるファイルを入れます。
+@<ttb>{layouts}ディレクトリはアプリケーションのレイアウトファイルを入れます。
 
 === デフォルトレイアウト
 
