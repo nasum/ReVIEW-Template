@@ -21,8 +21,6 @@
   @<ttb>{Nuxt.js}のビューコンポーネントについて解説します。
  : @<chapref>{hello_nuxt_command}
   @<ttb>{Nuxt.js}で使用するコマンドについて解説します。
- : @<chapref>{hello_nuxt_how_to_create_application}
-  @<ttb>{Nuxt.js}でアプリケーションを作成する方法について解説します。
 
 == サンプルコードについて
 
